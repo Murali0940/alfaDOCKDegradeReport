@@ -11,6 +11,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import baseclasses.Complogin;
+import baseclasses.DrawingMangement;
 import baseclasses.Homepage;
 import baseclasses.UserLogin;
 import basemethods.BaseMethods;
@@ -24,6 +25,7 @@ public class DegradeReport
 	Complogin clogin;
 	UserLogin ulogin;
 	Homepage homepage;
+	DrawingMangement dm;
 
 	@BeforeTest
 	public void driverinfo() throws IOException, InterruptedException
@@ -124,6 +126,16 @@ public class DegradeReport
 		bm.startTest(driver, "File_root_location");
 		homepage.search_File_Click_RootIcon(driver, ".pdf");
 		bm.logInfo(driver, "File Root location searched and found the location");
+
+	}
+
+	@Test(priority = 7, enabled = true, testName = "upload File in 5S")
+	public void upload_file_in_5s() throws InterruptedException
+	{
+		DrawingMangement dm = new DrawingMangement();
+		bm.startTest(driver, "upload File in 5S");
+		dm.uploadfile_in_5s(driver);
+		bm.logInfo(driver, "File uploaded sucessfully in 5S");
 
 	}
 
