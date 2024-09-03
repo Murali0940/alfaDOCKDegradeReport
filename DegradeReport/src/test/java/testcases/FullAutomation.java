@@ -23,7 +23,8 @@ import com.relevantcodes.extentreports.LogStatus;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class FullAutomation {
+public class FullAutomation
+{
 
 	ChromeDriver driver;
 	JavascriptExecutor js;
@@ -31,7 +32,8 @@ public class FullAutomation {
 
 	// company login
 	@BeforeSuite
-	public void alfadock_companyLogin() throws InterruptedException {
+	public void alfadock_companyLogin() throws InterruptedException
+	{
 		String compusername = "Atkgi";
 		String password = "1234";
 		String url = "https://www.alfadock-pack.com/";
@@ -63,7 +65,8 @@ public class FullAutomation {
 	}
 
 	@BeforeSuite
-	public void userLogin() throws InterruptedException {
+	public void userLogin() throws InterruptedException
+	{
 		String loginusername = "admin";
 		String password = "admin";
 
@@ -91,7 +94,8 @@ public class FullAutomation {
 	ExtentTest logger;
 
 	@Test(enabled = true, priority = 1)
-	public void searchPng() throws InterruptedException {
+	public void searchPng() throws InterruptedException
+	{
 		System.out.println("search PNG file");
 		Thread.sleep(2000);
 
@@ -156,7 +160,8 @@ public class FullAutomation {
 	}
 
 	@Test(enabled = true, priority = 2)
-	public void searchBmf() throws InterruptedException {
+	public void searchBmf() throws InterruptedException
+	{
 		System.out.println("Search BMF file");
 		// Start the test
 		logger = report.startTest("Search BMF file");
@@ -208,7 +213,8 @@ public class FullAutomation {
 	}
 
 	@Test(enabled = true, priority = 3)
-	public void fileSearch() throws InterruptedException {
+	public void fileSearch() throws InterruptedException
+	{
 		System.out.println("File search");
 		Thread.sleep(2000);
 
@@ -268,7 +274,8 @@ public class FullAutomation {
 	}
 
 	@Test(enabled = true, priority = 4)
-	public void folderSearch() throws InterruptedException {
+	public void folderSearch() throws InterruptedException
+	{
 		System.out.println("folder search ");
 		logger = report.startTest("Folder search");
 		Thread.sleep(2000);
@@ -332,7 +339,8 @@ public class FullAutomation {
 	}
 
 	@Test(enabled = true, priority = 5)
-	public void searchby_Filename() throws InterruptedException {
+	public void searchby_Filename() throws InterruptedException
+	{
 		System.out.println("=============search by filename=====================");
 		Thread.sleep(2000);
 		logger = report.startTest("search by filename");
@@ -383,7 +391,8 @@ public class FullAutomation {
 	}
 
 	@Test(enabled = true, priority = 6)
-	public void fileRootLocation() throws InterruptedException {
+	public void fileRootLocation() throws InterruptedException
+	{
 		System.out.println("Root file location");
 		logger = report.startTest("Root file location");
 		logger.log(LogStatus.INFO, "Root File Location");
@@ -424,7 +433,8 @@ public class FullAutomation {
 	}
 
 	@Test(enabled = true, priority = 7)
-	public void filedownload() throws InterruptedException {
+	public void filedownload() throws InterruptedException
+	{
 		Thread.sleep(2000);
 		logger = report.startTest("File Download");
 		// search bar
@@ -458,7 +468,8 @@ public class FullAutomation {
 	}
 
 	@Test(enabled = true, priority = 8)
-	public void sps_Test() throws InterruptedException {
+	public void sps_Test() throws InterruptedException
+	{
 		Thread.sleep(3000);
 		logger = report.startTest("SPS Test");
 
@@ -506,7 +517,8 @@ public class FullAutomation {
 	}
 
 	@Test(enabled = true, priority = 9)
-	public void uploadfile_in_5s() throws InterruptedException {
+	public void uploadfile_in_5s() throws InterruptedException
+	{
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		// Start the test
 		logger = report.startTest("Upload_Files");
@@ -569,7 +581,8 @@ public class FullAutomation {
 	}
 
 	@Test(enabled = true, priority = 10)
-	public void search_fileby_filename_in_5s() throws InterruptedException {
+	public void search_fileby_filename_in_5s() throws InterruptedException
+	{
 		Thread.sleep(2000);
 		logger = report.startTest("search_fileby_filenameorattribute_in_5s");
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
@@ -611,7 +624,8 @@ public class FullAutomation {
 	}
 
 	@Test(enabled = true, priority = 11)
-	public void search_fileby_attribute_in_5s() throws InterruptedException {
+	public void search_fileby_attribute_in_5s() throws InterruptedException
+	{
 		logger = report.startTest("fileby_attribute_in_5s");
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		System.out.println("Clicked 5S");
@@ -661,7 +675,8 @@ public class FullAutomation {
 	}
 
 	@Test(enabled = true, priority = 12)
-	public void download_of_Pdfandmsofficefilesin_GridView() throws InterruptedException {
+	public void download_of_Pdfandmsofficefilesin_GridView() throws InterruptedException
+	{
 		System.out.println("Download file in Grid view 5s");
 		logger = report.startTest("Download file in Grid view 5s");
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
@@ -786,7 +801,8 @@ public class FullAutomation {
 	}
 
 	@Test(enabled = true, priority = 13)
-	public void download_of_Pdfandmsofficefiles_ListView() throws InterruptedException {
+	public void download_of_Pdfandmsofficefiles_ListView() throws InterruptedException
+	{
 
 		// List View Download
 		System.out.println("==================================================");
@@ -949,7 +965,8 @@ public class FullAutomation {
 	}
 
 	@Test(enabled = true, priority = 14)
-	public void pagination_View_Gridview_and_Listview() throws InterruptedException {
+	public void pagination_View_Gridview_and_Listview() throws InterruptedException
+	{
 		logger = report.startTest("pagination_View_Gridview_and_Listview");
 		System.out.println("pagination Grid View and List view");
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
@@ -1038,7 +1055,8 @@ public class FullAutomation {
 	}
 
 	@Test(enabled = true, priority = 15)
-	public void trash_files_in_5S() throws InterruptedException {
+	public void trash_files_in_5S() throws InterruptedException
+	{
 		// report = new
 		// ExtentReports("F:\\RunnableJar\\ExtentReports\\Automation_Report.html");
 		logger = report.startTest("trash_files_in_5S");
@@ -1073,7 +1091,8 @@ public class FullAutomation {
 	}
 
 	@Test(enabled = true, priority = 16)
-	public void sort_by_Name_Date_created_Modified_date_ascendingordescending() throws InterruptedException {
+	public void sort_by_Name_Date_created_Modified_date_ascendingordescending() throws InterruptedException
+	{
 		WebElement uparrow;
 		WebElement downarrow;
 		System.out.println("asc_Or_Desc_ByName_CreatedDate_ModifiedDate");
@@ -1134,7 +1153,8 @@ public class FullAutomation {
 	}
 
 	@Test(enabled = true, priority = 17)
-	public void placingPHDOrder() throws InterruptedException {
+	public void placingPHDOrder() throws InterruptedException
+	{
 		System.out.println("==============Placing PHD order====================");
 		logger = report.startTest("PHD order");
 		WebElement drawingmanagement = driver.findElement(By.xpath("//img[@src='assets/icons/Digital 5S.png']"));
@@ -1191,7 +1211,8 @@ public class FullAutomation {
 	}
 
 	@Test(enabled = true, priority = 18)
-	public void connectAndAirportTest() throws InterruptedException {
+	public void connectAndAirportTest() throws InterruptedException
+	{
 		Thread.sleep(2000);
 		System.out.println("=====connect and airport");
 
@@ -1257,7 +1278,8 @@ public class FullAutomation {
 	}
 
 	@AfterSuite
-	public void close() throws InterruptedException {
+	public void close() throws InterruptedException
+	{
 		report.endTest(logger);
 		report.flush();
 		Thread.sleep(3000);

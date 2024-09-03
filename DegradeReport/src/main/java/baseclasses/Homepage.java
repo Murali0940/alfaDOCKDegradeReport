@@ -12,15 +12,17 @@ import org.openqa.selenium.interactions.Actions;
 
 import basemethods.BaseMethods;
 
-public class Homepage extends BaseMethods {
+public class Homepage extends BaseMethods
+{
 
 	BaseMethods bm = new BaseMethods();
 	JavascriptExecutor js;
 	Actions act;
 
-	public String searchBar(WebDriver driver, String name) throws InterruptedException {
+	public String searchBar(WebDriver driver, String name) throws InterruptedException
+	{
 
-		// bm.startTest(driver, "searchPNG");
+		System.out.println("search PNG========================================");
 		bm.wait(driver, Duration.ofSeconds(10));
 
 		By searchbar = By.xpath(
@@ -70,8 +72,10 @@ public class Homepage extends BaseMethods {
 
 	}
 
-	public String Search_For_File_Using_Attributes(WebDriver driver, String name) throws InterruptedException {
+	public String Search_For_File_Using_Attributes(WebDriver driver, String name) throws InterruptedException
+	{
 
+		System.out.println("Search_For_File_Using_Attributes========================================");
 		bm.wait(driver, Duration.ofSeconds(10));
 
 		By searchbar = By.xpath(
@@ -188,8 +192,10 @@ public class Homepage extends BaseMethods {
 
 	}
 
-	public String Search_For_File_Using_AttributeSearch(WebDriver driver, String name) throws InterruptedException {
+	public String Search_For_File_Using_AttributeSearch(WebDriver driver, String name) throws InterruptedException
+	{
 
+		System.out.println("Search_For_File_Using_AttributeSearch========================================");
 		bm.wait(driver, Duration.ofSeconds(10));
 
 		By searchbar = By.xpath(
@@ -314,8 +320,9 @@ public class Homepage extends BaseMethods {
 
 	}
 
-	public String folder_Search(WebDriver driver, String name) throws InterruptedException {
-		System.out.println("folder search ");
+	public String folder_Search(WebDriver driver, String name) throws InterruptedException
+	{
+		System.out.println("folder_Search========================================");
 		Thread.sleep(2000);
 		bm.wait(driver, Duration.ofSeconds(10));
 
@@ -403,9 +410,9 @@ public class Homepage extends BaseMethods {
 		return name;
 	}
 
-	public void search_File_Click_RootIcon(WebDriver driver, String name) throws InterruptedException {
-
-		System.out.println("folder search ");
+	public void search_File_Click_RootIcon(WebDriver driver, String name) throws InterruptedException
+	{
+		System.out.println("search_File_Click_RootIcon========================================");
 		Thread.sleep(3000);
 		bm.wait(driver, Duration.ofSeconds(20));
 		By searchbar = By.xpath(
@@ -438,9 +445,7 @@ public class Homepage extends BaseMethods {
 		WebElement logo = driver.findElement(docklogo);
 		((JavascriptExecutor) driver).executeScript("arguments[0].click();", logo);
 		bm.wait(driver, Duration.ofSeconds(30));
-		
-		
-		
+
 	}
 
 }

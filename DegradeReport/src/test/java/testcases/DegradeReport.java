@@ -1,6 +1,10 @@
 package testcases;
 
+import java.awt.Desktop;
+import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.apache.commons.mail.EmailException;
 import org.openqa.selenium.WebDriver;
@@ -38,6 +42,13 @@ public class DegradeReport
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("--remote-allow-origins=*");
 		options.addArguments("start-maximized");
+		// Configure ChromeOptions to handle downloads
+		Map<String, Object> prefs = new HashMap<>();
+		prefs.put("download.prompt_for_download", false);
+		prefs.put("profile.default_content_setting_values.automatic_downloads", 1);
+		prefs.put("safebrowsing.enabled", "true");
+		options.setExperimentalOption("prefs", prefs);
+
 		WebDriverManager.chromedriver().setup();
 		driver = new ChromeDriver(options);
 		bm.driverinfo(driver);
@@ -139,13 +150,65 @@ public class DegradeReport
 
 	}
 
+	@Test(priority = 8, enabled = true, testName = "Search_By_File_in_5S")
+	public void search_By_File_in_5S() throws InterruptedException
+	{
+		DrawingMangement dm = new DrawingMangement();
+		bm.startTest(driver, "Search_By_File_in_5S");
+		dm.searchFilein5S(driver, ".pdf");
+		bm.logInfo(driver, "File viewed in viewer");
+
+	}
+
+	@Test(priority = 9, enabled = true, testName = "PDF file download in list view")
+	public void fileDownloadin5S() throws InterruptedException
+	{
+		DrawingMangement dm = new DrawingMangement();
+		bm.startTest(driver, "PDF file download in list view");
+		dm.fileDownloadInGridView(driver, ".pdf");
+		bm.logInfo(driver, "PDF File Downloaded");
+
+	}
+
+	@Test(priority = 10, enabled = true, testName = "XLSX file download in Grid view")
+	public void xlsxFileDownloadin5S() throws InterruptedException
+	{
+		DrawingMangement dm = new DrawingMangement();
+		bm.startTest(driver, "XLSX file download in Grid view");
+		dm.fileDownloadInGridView(driver, ".xlsx");
+		bm.logInfo(driver, "XLSX File Downloaded");
+
+	}
+
+	@Test(priority = 11, enabled = true, testName = "PPTX file download in Grid view")
+	public void pptxFileDownloadin5S() throws InterruptedException
+	{
+		DrawingMangement dm = new DrawingMangement();
+		bm.startTest(driver, "PPTX file download in Grid view");
+		dm.fileDownloadInGridView(driver, ".pptx");
+		bm.logInfo(driver, "pptx File Downloaded");
+
+	}
+
+	@Test(priority = 12, enabled = true, testName = "DOCX file download in Grid view")
+	public void DOCXFileDownloadin5S() throws InterruptedException
+	{
+		DrawingMangement dm = new DrawingMangement();
+		bm.startTest(driver, "DOCX file download in Grid view");
+		dm.fileDownloadInGridView(driver, ".docx");
+		bm.logInfo(driver, "docx File Downloaded");
+
+	}
+
 	@AfterTest
-	public void tearDown() throws InterruptedException, EmailException
+	public void tearDown() throws InterruptedException, EmailException, IOException
 	{
 
 		bm.endreport(driver);
 		bm.endTest(driver);
 		bm.browserclose(driver);
+		Desktop.getDesktop()
+				.browse(new File("F:\\ScreenShotsAndExtentReport\\ExtentReport\\DegradeTestReport.html").toURI());
 //		System.out.println("Browser closed and report generated");
 //
 //		MailWithAttachment mwa = new MailWithAttachment();

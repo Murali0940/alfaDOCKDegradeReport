@@ -11,14 +11,14 @@ import org.testng.Assert;
 
 import basemethods.BaseMethods;
 
-
-
-public class Complogin extends BaseMethods {
+public class Complogin extends BaseMethods
+{
 
 	WebDriverWait wait;
 	WebDriver driver;
 
-	public Complogin(WebDriver driver) {
+	public Complogin(WebDriver driver)
+	{
 		this.driver = driver;
 	}
 
@@ -26,13 +26,15 @@ public class Complogin extends BaseMethods {
 	By cpass = By.id("password");
 	By clogin = By.id("logmein");
 
-	public void setLanguage(WebDriver driver) throws InterruptedException {
+	public void setLanguage(WebDriver driver) throws InterruptedException
+	{
 		Select sl = new Select(driver.findElement(By.xpath("//select[@id='mySelect']")));
 		sl.selectByValue("English");
 
 	}
 
-	public void setCname(WebDriver driver) throws InterruptedException {
+	public void setCname(WebDriver driver) throws InterruptedException
+	{
 
 		String compname = driver.findElement(By.id("companylogin")).getText();
 		System.out.println(compname);
@@ -48,12 +50,14 @@ public class Complogin extends BaseMethods {
 
 	}
 
-	public void setCpass(WebDriver driver) {
+	public void setCpass(WebDriver driver)
+	{
 		driver.findElement(By.id("password")).sendKeys("1234");
 
 	}
 
-	public UserLogin clogin(WebDriver driver) throws InterruptedException {
+	public UserLogin clogin(WebDriver driver) throws InterruptedException
+	{
 
 		driver.findElement(By.id("logmein")).click();
 		Thread.sleep(2000);
@@ -63,13 +67,15 @@ public class Complogin extends BaseMethods {
 
 	}
 
-	public void complogin_page_validate_url(WebDriver driver) throws InterruptedException {
+	public void complogin_page_validate_url(WebDriver driver) throws InterruptedException
+	{
 
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 		String expectedURL = "https://www.alfadock-pack.com/userlogin.html";
 		String actualURL = driver.getCurrentUrl();
-		Thread.sleep(2000);
+		Thread.sleep(10000);
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+
 		// Create WebDriverWait instance with a timeout of 20 seconds
 		wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 

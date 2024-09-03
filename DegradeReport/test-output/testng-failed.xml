@@ -5,9 +5,11 @@
     <classes>
       <class name="testcases.DegradeReport">
         <methods>
+          <include name="DOCXFileDownloadin5S"/>
           <include name="driverinfo"/>
-          <include name="file_Root_Location"/>
+          <include name="xlsxFileDownloadin5S"/>
           <include name="tearDown"/>
+          <include name="pptxFileDownloadin5S"/>
         </methods>
       </class> <!-- testcases.DegradeReport -->
     </classes>
